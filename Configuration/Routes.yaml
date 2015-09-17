@@ -1,0 +1,10 @@
+-
+  name: 'Ttree.OutOfBandRendering - RenderingController->show'
+  uriPattern: 'api/v1/rendering'
+  defaults:
+    '@package':    'Ttree.OutOfBandRendering'
+    '@controller': 'Rendering'
+    '@action':     'show'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+  httpMethods: ['GET']

@@ -61,6 +61,7 @@ What's next ?
 -------------
 
 - Implement authorization support
+- Add JS module to support content loading (appending, replacing, infinite scrolling, ...)
 
 Acknowledgments
 ---------------

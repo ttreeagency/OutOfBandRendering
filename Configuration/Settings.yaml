@@ -1,6 +1,6 @@
----
 Ttree:
   OutOfBandRendering:
-    presets:
-      'report':
-        typoScriptPath: 'page<Ttree.ArchitectesCh:DefaultPage>/body<TYPO3.TypoScript:Template>/content/main<TYPO3.Neos:PrimaryContent>/enterpriseProfile<TYPO3.TypoScript:Matcher>/element<Ttree.ArchitectesCh:EnterpriseProfile>/reportSection<Ttree.ArchitectesCh:EnterpriseProfileSection>'
+    presets: [ ]
+#    presets:
+#      'sample':
+#        typoScriptPath: 'page<TYPO3.Neos.NodeTypes:Page>/body<TYPO3.TypoScript:Template>/content/main<TYPO3.Neos:PrimaryContent>/collection<TYPO3.TypoScript:Matcher>/element<Your.Package:Collection>'

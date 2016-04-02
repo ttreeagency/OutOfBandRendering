@@ -2,8 +2,12 @@
     "name": "ttree/outofbandrendering",
     "type": "typo3-flow-package",
     "description": "A package to make TypoScript Out of Band rendering in complex application fun & easy",
+    "license": "MIT",
+    "keywords": [
+        "typoscript"
+    ],
     "require": {
-        "typo3/neos": "~2.0"
+        "typo3/neos": "*"
     },
     "autoload": {
         "psr-4": {

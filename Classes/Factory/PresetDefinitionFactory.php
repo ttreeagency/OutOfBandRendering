@@ -1,6 +1,7 @@
 <?php
 namespace Ttree\OutOfBandRendering\Factory;
 
+use Ttree\OutOfBandRendering\Domain\Model\GenericPresetDefinition;
 use Ttree\OutOfBandRendering\Domain\Model\PresetDefinitionInterface;
 use Ttree\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
 use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
@@ -30,6 +31,12 @@ class PresetDefinitionFactory {
     protected $presetDefinitions = [];
 
     /**
+     * @Flow\InjectConfiguration(path="presets")
+     * @var array
+     */
+    protected $staticPresets;
+
+    /**
      * @var boolean
      */
     protected $initialized = FALSE;
@@ -42,8 +49,11 @@ class PresetDefinitionFactory {
      */
     public function create($presetName, NodeInterface $node) {
         $this->initialize();
-        if (!isset($this->presetDefinitions[$presetName])) {
+        if (!isset($this->presetDefinitions[$presetName]) && !isset($this->staticPresets[$presetName])) {
             throw new PresetNotFoundException(sprintf('Preset "%s" not found', $presetName), 1442471214);
+        }
+        if (!isset($this->presetDefinitions[$presetName]) && isset($this->staticPresets[$presetName])) {
+            return new GenericPresetDefinition($presetName, $this->staticPresets[$presetName]);
         }
         foreach ($this->presetDefinitions[$presetName] as $presetDefinition) {
             /** @var PresetDefinitionInterface $presetDefinition */
@@ -76,6 +86,9 @@ class PresetDefinitionFactory {
         }
         $classNames = static::getPresetDefinitionImplementationClassNames($this->objectManager);
         foreach ($classNames as $className) {
+            if ($className === GenericPresetDefinition::class) {
+                continue;
+            }
             /** @var PresetDefinitionInterface $presetDefinition */
             $presetDefinition = $this->objectManager->get($className);
             if (isset($this->presetDefinitions[$presetDefinition->getName()][$presetDefinition->getPriority()])) {

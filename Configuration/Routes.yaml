@@ -1,6 +1,6 @@
 -
   name: 'Ttree.OutOfBandRendering - RenderingController->show'
-  uriPattern: 'api/v1/rendering'
+  uriPattern: 'ttree/outofbandrendering'
   defaults:
     '@package':    'Ttree.OutOfBandRendering'
     '@controller': 'Rendering'

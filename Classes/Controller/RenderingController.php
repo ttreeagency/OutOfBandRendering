@@ -8,7 +8,7 @@ use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
 use Neos\Neos\Controller\Exception\NodeNotFoundException;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
-use TYPO3\TypoScript\View\TypoScriptView;
+use Neos\Fusion\View\TypoScriptView;
 
 /**
  * Suggest Controller

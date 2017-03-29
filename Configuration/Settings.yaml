@@ -3,4 +3,4 @@ Ttree:
     presets: [ ]
 #    presets:
 #      'sample':
-#        typoScriptPath: 'page<Neos.NodeTypes:Page>/body<TYPO3.TypoScript:Template>/content/main<Neos.Neos:PrimaryContent>/collection<TYPO3.TypoScript:Matcher>/element<Your.Package:Collection>'
+#        typoScriptPath: 'page<Neos.NodeTypes:Page>/body<Neos.Fusion:Template>/content/main<Neos.Neos:PrimaryContent>/collection<Neos.Fusion:Matcher>/element<Your.Package:Collection>'

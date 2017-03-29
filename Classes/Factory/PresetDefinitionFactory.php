@@ -7,7 +7,7 @@ use Ttree\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
 use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 /**
  * Preset Definition Factory

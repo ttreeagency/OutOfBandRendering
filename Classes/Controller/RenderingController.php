@@ -7,7 +7,7 @@ use Neos\Flow\Exception;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
 use Neos\Neos\Controller\Exception\NodeNotFoundException;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 use TYPO3\TypoScript\View\TypoScriptView;
 
 /**
@@ -44,7 +44,7 @@ class RenderingController extends ActionController {
      */
     public function showAction($node, $preset) {
         /** @var NodeInterface $node */
-        $node = $this->propertyMapper->convert($node, 'TYPO3\TYPO3CR\Domain\Model\NodeInterface');
+        $node = $this->propertyMapper->convert($node, 'Neos\ContentRepository\Domain\Model\NodeInterface');
         if ($node === NULL) {
             throw new NodeNotFoundException('The requested node does not exist or isn\'t accessible to the current user', 1442327533);
         }

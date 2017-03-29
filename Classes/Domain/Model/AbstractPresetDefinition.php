@@ -1,7 +1,7 @@
 <?php
 namespace Ttree\OutOfBandRendering\Domain\Model;
 
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 /**
  * Abstract Preset Definition

@@ -1,13 +1,15 @@
 {
     "name": "ttree/outofbandrendering",
-    "type": "typo3-flow-package",
-    "description": "A package to make TypoScript Out of Band rendering in complex application fun & easy",
+    "type": "neos-package",
+    "description": "A package to render Fusion Out of Band in complex application fun & easy",
     "license": "MIT",
     "keywords": [
-        "typoscript"
+        "neoscms",
+        "flow-framework",
+        "fusion"
     ],
     "require": {
-        "typo3/neos": "*"
+        "neos/neos": "^3.0.0"
     },
     "autoload": {
         "psr-4": {

@@ -8,6 +8,7 @@ use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\Flow\Reflection\ReflectionService;
 
 /**
  * Preset Definition Factory
@@ -17,7 +18,7 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
  */
 class PresetDefinitionFactory {
 
-    const PRESET_DEFINITION_INTERFACE = 'Ttree\OutOfBandRendering\Domain\Model\PresetDefinitionInterface';
+    const PRESET_DEFINITION_INTERFACE = PresetDefinitionInterface::class;
 
     /**
      * @Flow\Inject
@@ -72,7 +73,7 @@ class PresetDefinitionFactory {
      * @Flow\CompileStatic
      */
     static public function getPresetDefinitionImplementationClassNames($objectManager) {
-        $reflectionService = $objectManager->get('Neos\Flow\Reflection\ReflectionService');
+        $reflectionService = $objectManager->get(ReflectionService::class);
         return $reflectionService->getAllImplementationClassNamesForInterface(self::PRESET_DEFINITION_INTERFACE);
     }
 

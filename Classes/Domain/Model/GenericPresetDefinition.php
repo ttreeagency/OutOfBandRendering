@@ -51,7 +51,7 @@ class GenericPresetDefinition extends AbstractPresetDefinition {
      * @return boolean
      */
     public function canHandle(NodeInterface $node) {
-        return TRUE;
+        return true;
     }
 
     /**

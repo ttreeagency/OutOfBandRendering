@@ -23,7 +23,7 @@ class RenderingController extends ActionController {
     /**
      * @var string
      */
-    protected $defaultViewObjectName = 'Neos\Neos\View\FusionView';
+    protected $defaultViewObjectName = FusionView::class;
 
     /**
      * @var PropertyMapper
@@ -44,7 +44,7 @@ class RenderingController extends ActionController {
      */
     public function showAction($node, $preset) {
         /** @var NodeInterface $node */
-        $node = $this->propertyMapper->convert($node, 'Neos\ContentRepository\Domain\Model\NodeInterface');
+        $node = $this->propertyMapper->convert($node, NodeInterface::class);
         if ($node === NULL) {
             throw new NodeNotFoundException('The requested node does not exist or isn\'t accessible to the current user', 1442327533);
         }

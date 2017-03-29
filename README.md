@@ -39,7 +39,7 @@ To use static preset, just writte something like this in your ```Settings.yaml``
       OutOfBandRendering:
         presets:
           'marketplace:version':
-            path: 'root<TYPO3.TypoScript:Case>/neosMarketPlaceDocument<TYPO3.TypoScript:Matcher>/element<Neos.MarketPlace:Package.Document>/body<TYPO3.TypoScript:Template>/content/main<TYPO3.TypoScript:Array>/package<Neos.MarketPlace:Package>/versions<Neos.MarketPlace:VersionPreview>'
+            path: 'root<Neos.Fusion:Case>/neosMarketPlaceDocument<Neos.Fusion:Matcher>/element<Neos.MarketPlace:Package.Document>/body<Neos.Fusion:Template>/content/main<Neos.Fusion:Array>/package<Neos.MarketPlace:Package>/versions<Neos.MarketPlace:VersionPreview>'
 
 The key ```marketplace:version``` is your preset name, and the path the allowed TypoScript path to be rendered.
 
@@ -52,7 +52,7 @@ You need a ```PresetDefintion``` object, the easy way is to extend the ```Abstra
 ```php
 
 use Ttree\OutOfBandRendering\Domain\Model\AbstractPresetDefinition;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 class CustomPresetPresetDefinition extends AbstractPresetDefinition  {
 
@@ -61,7 +61,7 @@ class CustomPresetPresetDefinition extends AbstractPresetDefinition  {
      * @return string
      */
     public function getTypoScriptPath(NodeInterface $node) {
-        return 'page<Ttree.ArchitectesCh:DefaultPage>/body<TYPO3.TypoScript:Template>/content/main<TYPO3.Neos:PrimaryContent>/enterpriseProfile<TYPO3.TypoScript:Matcher>/element<Ttree.ArchitectesCh:EnterpriseProfile>/reportSection<Ttree.ArchitectesCh:EnterpriseProfileSection>/content<Ttree.ArchitectesCh:ReportMenu>';
+        return 'page<Ttree.ArchitectesCh:DefaultPage>/body<Neos.Fusion:Template>/content/main<Neos.Neos:PrimaryContent>/enterpriseProfile<Neos.Fusion:Matcher>/element<Ttree.ArchitectesCh:EnterpriseProfile>/reportSection<Ttree.ArchitectesCh:EnterpriseProfileSection>/content<Ttree.ArchitectesCh:ReportMenu>';
     }
 }
 

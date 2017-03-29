@@ -5,8 +5,8 @@ use Ttree\OutOfBandRendering\Domain\Model\GenericPresetDefinition;
 use Ttree\OutOfBandRendering\Domain\Model\PresetDefinitionInterface;
 use Ttree\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
 use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\ObjectManagement\ObjectManagerInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 
 /**
@@ -72,7 +72,7 @@ class PresetDefinitionFactory {
      * @Flow\CompileStatic
      */
     static public function getPresetDefinitionImplementationClassNames($objectManager) {
-        $reflectionService = $objectManager->get('TYPO3\Flow\Reflection\ReflectionService');
+        $reflectionService = $objectManager->get('Neos\Flow\Reflection\ReflectionService');
         return $reflectionService->getAllImplementationClassNamesForInterface(self::PRESET_DEFINITION_INTERFACE);
     }
 

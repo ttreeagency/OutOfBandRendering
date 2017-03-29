@@ -2,10 +2,10 @@
 namespace Ttree\OutOfBandRendering\Controller;
 
 use Ttree\OutOfBandRendering\Factory\PresetDefinitionFactory;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Exception;
-use TYPO3\Flow\Mvc\Controller\ActionController;
-use TYPO3\Flow\Property\PropertyMapper;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Exception;
+use Neos\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Property\PropertyMapper;
 use TYPO3\Neos\Controller\Exception\NodeNotFoundException;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TypoScript\View\TypoScriptView;

@@ -1,11 +1,11 @@
 privilegeTargets:
-  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
 
     'Ttree.OutOfBandRendering:Controller.RenderingController':
       matcher: method(Ttree\OutOfBandRendering\Controller\RenderingController->showAction())
 
 roles:
-  'TYPO3.Flow:Everybody':
+  'Neos.Flow:Everybody':
     privileges:
       -
         privilegeTarget: 'Ttree.OutOfBandRendering:Controller.RenderingController'

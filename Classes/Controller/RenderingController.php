@@ -8,7 +8,7 @@ use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
 use Neos\Neos\Controller\Exception\NodeNotFoundException;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
-use Neos\Fusion\View\TypoScriptView;
+use Neos\Fusion\View\FusionView;
 
 /**
  * Suggest Controller
@@ -16,14 +16,14 @@ use Neos\Fusion\View\TypoScriptView;
 class RenderingController extends ActionController {
 
     /**
-     * @var TypoScriptView
+     * @var FusionView
      */
     protected $view;
 
     /**
      * @var string
      */
-    protected $defaultViewObjectName = 'Neos\Neos\View\TypoScriptView';
+    protected $defaultViewObjectName = 'Neos\Neos\View\FusionView';
 
     /**
      * @var PropertyMapper
@@ -50,7 +50,7 @@ class RenderingController extends ActionController {
         }
         $this->view->assign('value', $node);
         $presetDefinition = $this->presetDefinitionFactory->create($preset, $node);
-        $this->view->setTypoScriptPath($presetDefinition->getTypoScriptPath($node));
+        $this->view->setFusionPath($presetDefinition->getTypoScriptPath($node));
     }
 
 }

@@ -6,7 +6,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Exception;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
-use TYPO3\Neos\Controller\Exception\NodeNotFoundException;
+use Neos\Neos\Controller\Exception\NodeNotFoundException;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TypoScript\View\TypoScriptView;
 
@@ -23,7 +23,7 @@ class RenderingController extends ActionController {
     /**
      * @var string
      */
-    protected $defaultViewObjectName = 'TYPO3\Neos\View\TypoScriptView';
+    protected $defaultViewObjectName = 'Neos\Neos\View\TypoScriptView';
 
     /**
      * @var PropertyMapper

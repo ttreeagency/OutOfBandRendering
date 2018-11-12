@@ -1,6 +1,6 @@
-# TypoScript Out of Band rendering helpers
+# Fusion Out of Band rendering helpers
 
-This package provide some helpers to work with TypoScript Out of Band rendering in Neos CMS
+This package provide some helpers to work with Fusion Out of Band rendering in Neos CMS
 
 **Package under development, API can change at any time**
 
@@ -26,26 +26,26 @@ Check the [Routes.yaml](Configuration/Routes.yaml) in this package, if you need 
 The endpoint require two parameters:
 
 - **node**: the full node path of the rendering node
-- **preset**: the preset name, check bellow for informations about Presets
+- **preset**: the preset name, check below for information about Presets
 
 You can create preset in two different ways, static presets in ```Settings.yaml``` and dynamic presets with your
-own PHP implementation. A preset is mainly used to limit the TypoScript path that can be rendered out of band.
+own PHP implementation. A preset is mainly used to limit the Fusion path that can be rendered out of band.
 
 ### Static Preset
 
-To use static preset, just writte something like this in your ```Settings.yaml```: 
+To use static preset, just write something like this in your ```Settings.yaml```: 
 
     Ttree:
       OutOfBandRendering:
         presets:
           'marketplace:version':
-            path: 'root<Neos.Fusion:Case>/neosMarketPlaceDocument<Neos.Fusion:Matcher>/element<Neos.MarketPlace:Package.Document>/body<Neos.Fusion:Template>/content/main<Neos.Fusion:Array>/package<Neos.MarketPlace:Package>/versions<Neos.MarketPlace:VersionPreview>'
+            path: 'root<Neos.Fusion:Case>/neosMarketPlaceDocument<Neos.Fusion:Matcher>/element<Neos.MarketPlace:Package>/body<Neos.Fusion:Template>/content/main<Neos.Fusion:Array>/package<Neos.MarketPlace:Package>/versions<Neos.MarketPlace:VersionPreview>'
 
-The key ```marketplace:version``` is your preset name, and the path the allowed TypoScript path to be rendered.
+The key ```marketplace:version``` is your preset name, and the path the allowed Fusion path to be rendered.
 
 ### Dynamic Preset
 
-A dynamic preset is more flexible and allow you to generate the TypoScript path dynamically based on the given node.
+A dynamic preset is more flexible and allow you to generate the Fusion path dynamically based on the given node.
 
 You need a ```PresetDefintion``` object, the easy way is to extend the ```AbstractPresetDefinition``` like this:
 
@@ -72,7 +72,7 @@ The ```PresetDefinitionInterface``` force you to defined the following methods:
 - **PresetDefinitionInterface::getPriority**: Return an integer to define the preset priority (higher has more priority, like in the Flow Framework PropertyMapper
 - **PresetDefinitionInterface::getName**: Return the name of the preset (used in the endpoint URL)
 - **PresetDefinitionInterface::canHandle**: Receive the current document node as argument, and allow you to add more logic to decide if a preset can handle the given node
-- **PresetDefinitionInterface::getTypoScriptPath**: Receive the current document node as argument, must return the TypoScript path to render
+- **PresetDefinitionInterface::getTypoScriptPath**: Receive the current document node as argument, must return the Fusion path to render
 
 ## What's next ?
 

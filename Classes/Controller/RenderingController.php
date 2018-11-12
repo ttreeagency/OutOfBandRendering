@@ -8,7 +8,7 @@ use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
 use Neos\Neos\Controller\Exception\NodeNotFoundException;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
-use Neos\Fusion\View\FusionView;
+use Neos\Neos\View\FusionView;
 
 /**
  * Suggest Controller

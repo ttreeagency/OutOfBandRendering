@@ -6,8 +6,8 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
 /**
  * Abstract Preset Definition
  */
-class GenericPresetDefinition extends AbstractPresetDefinition {
-
+class GenericPresetDefinition extends AbstractPresetDefinition
+{
     /**
      * @var string
      */
@@ -22,25 +22,27 @@ class GenericPresetDefinition extends AbstractPresetDefinition {
      * @param string $name
      * @param array $configuration
      */
-    public function __construct($name, array $configuration)
+    public function __construct(string $name, array $configuration)
     {
         $this->name = (string)$name;
         $this->path = (string)$configuration['path'];
     }
 
     /**
-     * @return integer
+     * @return string
      */
-    public function getName() {
+    public function getName(): string
+    {
         return $this->name;
     }
 
     /**
      * {@inheritdoc}
      *
-     * @return integer
+     * @return int
      */
-    public function getPriority() {
+    public function getPriority(): int
+    {
         return $this->priority;
     }
 
@@ -48,9 +50,10 @@ class GenericPresetDefinition extends AbstractPresetDefinition {
      * {@inheritdoc}
      *
      * @param NodeInterface $node
-     * @return boolean
+     * @return bool
      */
-    public function canHandle(NodeInterface $node) {
+    public function canHandle(NodeInterface $node): bool
+    {
         return true;
     }
 
@@ -58,7 +61,7 @@ class GenericPresetDefinition extends AbstractPresetDefinition {
      * @param NodeInterface $node
      * @return string
      */
-    public function getTypoScriptPath(NodeInterface $node)
+    public function getFusionPath(NodeInterface $node): string
     {
         return $this->path;
     }

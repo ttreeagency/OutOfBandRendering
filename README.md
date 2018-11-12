@@ -60,7 +60,7 @@ class CustomPresetPresetDefinition extends AbstractPresetDefinition  {
      * @param NodeInterface $node
      * @return string
      */
-    public function getTypoScriptPath(NodeInterface $node) {
+    public function getFusionPath(NodeInterface $node) {
         return 'page<Ttree.ArchitectesCh:DefaultPage>/body<Neos.Fusion:Template>/content/main<Neos.Neos:PrimaryContent>/enterpriseProfile<Neos.Fusion:Matcher>/element<Ttree.ArchitectesCh:EnterpriseProfile>/reportSection<Ttree.ArchitectesCh:EnterpriseProfileSection>/content<Ttree.ArchitectesCh:ReportMenu>';
     }
 }
@@ -72,7 +72,7 @@ The ```PresetDefinitionInterface``` force you to defined the following methods:
 - **PresetDefinitionInterface::getPriority**: Return an integer to define the preset priority (higher has more priority, like in the Flow Framework PropertyMapper
 - **PresetDefinitionInterface::getName**: Return the name of the preset (used in the endpoint URL)
 - **PresetDefinitionInterface::canHandle**: Receive the current document node as argument, and allow you to add more logic to decide if a preset can handle the given node
-- **PresetDefinitionInterface::getTypoScriptPath**: Receive the current document node as argument, must return the Fusion path to render
+- **PresetDefinitionInterface::getFusionPath**: Receive the current document node as argument, must return the Fusion path to render
 
 ## What's next ?
 

@@ -1,14 +1,14 @@
 <?php
 namespace Ttree\OutOfBandRendering\Factory;
 
+use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\ObjectManagement\ObjectManagerInterface;
+use Neos\Flow\Reflection\ReflectionService;
 use Ttree\OutOfBandRendering\Domain\Model\GenericPresetDefinition;
 use Ttree\OutOfBandRendering\Domain\Model\PresetDefinitionInterface;
 use Ttree\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
 use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
-use Neos\Flow\Annotations as Flow;
-use Neos\Flow\ObjectManagement\ObjectManagerInterface;
-use Neos\ContentRepository\Domain\Model\NodeInterface;
-use Neos\Flow\Reflection\ReflectionService;
 
 /**
  * Preset Definition Factory
@@ -16,7 +16,8 @@ use Neos\Flow\Reflection\ReflectionService;
  * @Flow\Scope("singleton")
  * @api
  */
-class PresetDefinitionFactory {
+class PresetDefinitionFactory
+{
 
     const PRESET_DEFINITION_INTERFACE = PresetDefinitionInterface::class;
 
@@ -40,15 +41,17 @@ class PresetDefinitionFactory {
     /**
      * @var boolean
      */
-    protected $initialized = FALSE;
+    protected $initialized = false;
 
     /**
      * @param $presetName
      * @param NodeInterface $node
      * @return PresetDefinitionInterface
      * @throws PresetNotFoundException
+     * @throws DuplicatePresetDefinitionException
      */
-    public function create($presetName, NodeInterface $node) {
+    public function create(string $presetName, NodeInterface $node): PresetDefinitionInterface
+    {
         $this->initialize();
         if (!isset($this->presetDefinitions[$presetName]) && !isset($this->staticPresets[$presetName])) {
             throw new PresetNotFoundException(sprintf('Preset "%s" not found', $presetName), 1442471214);
@@ -72,7 +75,8 @@ class PresetDefinitionFactory {
      * @return array Array of preset definition implementations
      * @Flow\CompileStatic
      */
-    static public function getPresetDefinitionImplementationClassNames($objectManager) {
+    static public function getPresetDefinitionImplementationClassNames(ObjectManagerInterface $objectManager): array
+    {
         $reflectionService = $objectManager->get(ReflectionService::class);
         return $reflectionService->getAllImplementationClassNamesForInterface(self::PRESET_DEFINITION_INTERFACE);
     }
@@ -81,8 +85,9 @@ class PresetDefinitionFactory {
      * @return void
      * @throws DuplicatePresetDefinitionException
      */
-    protected function initialize() {
-        if ($this->initialized === TRUE) {
+    protected function initialize(): void
+    {
+        if ($this->initialized === true) {
             return;
         }
         $classNames = static::getPresetDefinitionImplementationClassNames($this->objectManager);
@@ -97,7 +102,6 @@ class PresetDefinitionFactory {
             }
             $this->presetDefinitions[$presetDefinition->getName()][$presetDefinition->getPriority()] = $presetDefinition;
         }
-        $this->initialized = TRUE;
+        $this->initialized = true;
     }
-
 }

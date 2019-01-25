@@ -1,20 +1,20 @@
 <?php
 namespace Ttree\OutOfBandRendering\Controller;
 
-use Ttree\OutOfBandRendering\Factory\PresetDefinitionFactory;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Exception;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
 use Neos\Neos\Controller\Exception\NodeNotFoundException;
-use Neos\ContentRepository\Domain\Model\NodeInterface;
-use Neos\Fusion\View\FusionView;
+use Neos\Neos\View\FusionView;
+use Ttree\OutOfBandRendering\Factory\PresetDefinitionFactory;
 
 /**
  * Suggest Controller
  */
-class RenderingController extends ActionController {
-
+class RenderingController extends ActionController
+{
     /**
      * @var FusionView
      */
@@ -42,15 +42,16 @@ class RenderingController extends ActionController {
      * @param string $preset
      * @throws Exception
      */
-    public function showAction($node, $preset) {
+    public function showAction(string $node, string $preset)
+    {
         /** @var NodeInterface $node */
         $node = $this->propertyMapper->convert($node, NodeInterface::class);
-        if ($node === NULL) {
+        if ($node === null) {
             throw new NodeNotFoundException('The requested node does not exist or isn\'t accessible to the current user', 1442327533);
         }
         $this->view->assign('value', $node);
         $presetDefinition = $this->presetDefinitionFactory->create($preset, $node);
-        $this->view->setFusionPath($presetDefinition->getTypoScriptPath($node));
+        $this->view->setFusionPath($presetDefinition->getFusionPath($node));
     }
 
 }

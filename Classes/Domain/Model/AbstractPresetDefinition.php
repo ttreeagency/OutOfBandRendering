@@ -6,8 +6,8 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
 /**
  * Abstract Preset Definition
  */
-abstract class AbstractPresetDefinition implements PresetDefinitionInterface {
-
+abstract class AbstractPresetDefinition implements PresetDefinitionInterface
+{
     /**
      * {@inheritdoc}
      *
@@ -20,7 +20,8 @@ abstract class AbstractPresetDefinition implements PresetDefinitionInterface {
      *
      * @return integer
      */
-    public function getName() {
+    public function getName(): string
+    {
         $calledClassName = explode('\\', get_called_class());
         return strtolower(trim(preg_replace('/([A-Z])/', '-$1', str_replace('PresetDefinition', '', array_pop($calledClassName))), '-'));
     }
@@ -28,9 +29,10 @@ abstract class AbstractPresetDefinition implements PresetDefinitionInterface {
     /**
      * {@inheritdoc}
      *
-     * @return integer
+     * @return int
      */
-    public function getPriority() {
+    public function getPriority(): int
+    {
         return $this->priority;
     }
 
@@ -38,10 +40,10 @@ abstract class AbstractPresetDefinition implements PresetDefinitionInterface {
      * {@inheritdoc}
      *
      * @param NodeInterface $node
-     * @return boolean
+     * @return bool
      */
-    public function canHandle(NodeInterface $node) {
-        return TRUE;
+    public function canHandle(NodeInterface $node): bool
+    {
+        return true;
     }
-
 }

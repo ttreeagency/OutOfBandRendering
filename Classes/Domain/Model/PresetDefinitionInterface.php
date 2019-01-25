@@ -6,35 +6,34 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
 /**
  * Preset Definition Interface
  */
-interface PresetDefinitionInterface {
-
+interface PresetDefinitionInterface
+{
     /**
      * Return the priority of this PresetDefinition. PresetDefinitions with a high priority are chosen before low priority.
      *
-     * @return integer
+     * @return int
      * @api
      */
-    public function getPriority();
+    public function getPriority(): int;
 
     /**
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      * Here, the PresetDefinition can do some additional runtime checks to see whether
      * it can handle the given node.
      *
      * @param NodeInterface $node
-     * @return boolean TRUE
+     * @return bool TRUE
      * @api
      */
-    public function canHandle(NodeInterface $node);
+    public function canHandle(NodeInterface $node): bool;
 
     /**
      * @param NodeInterface $node
      * @return string
      */
-    public function getTypoScriptPath(NodeInterface $node);
-
+    public function getFusionPath(NodeInterface $node): string;
 }

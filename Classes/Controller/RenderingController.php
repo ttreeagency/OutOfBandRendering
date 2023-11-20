@@ -1,5 +1,5 @@
 <?php
-namespace Ttree\OutOfBandRendering\Controller;
+namespace Carbon\OutOfBandRendering\Controller;
 
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Flow\Annotations as Flow;
@@ -8,7 +8,7 @@ use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Property\PropertyMapper;
 use Neos\Neos\Controller\Exception\NodeNotFoundException;
 use Neos\Neos\View\FusionView;
-use Ttree\OutOfBandRendering\Factory\PresetDefinitionFactory;
+use Carbon\OutOfBandRendering\Factory\PresetDefinitionFactory;
 
 /**
  * Suggest Controller

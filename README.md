@@ -1,4 +1,6 @@
-# Fusion Out of Band rendering helpers
+# Carbon.OutOfBandRendering
+
+**Fusion Out of Band rendering helpers**
 
 This package provide some helpers to work with Fusion Out of Band rendering in Neos CMS
 
@@ -9,11 +11,11 @@ This package provide some helpers to work with Fusion Out of Band rendering in N
 Edit your distribution ```Routes.yaml``` and add the required routes:
 
     -
-      name: 'Ttree.OutOfBandRendering'
-      uriPattern: '<TtreeOutOfBandRenderingSubroutes>'
+      name: 'Carbon.OutOfBandRendering'
+      uriPattern: '<CarbonOutOfBandRenderingSubroutes>'
       subRoutes:
-        'TtreeOutOfBandRenderingSubroutes':
-          package: 'Ttree.OutOfBandRendering'
+        'CarbonOutOfBandRenderingSubroutes':
+          package: 'Carbon.OutOfBandRendering'
           variables:
             'defaultUriSuffix': ''
             
@@ -35,7 +37,7 @@ own PHP implementation. A preset is mainly used to limit the Fusion path that ca
 
 To use static preset, just write something like this in your ```Settings.yaml```: 
 
-    Ttree:
+    Carbon:
       OutOfBandRendering:
         presets:
           'marketplace:version':
@@ -51,7 +53,7 @@ You need a ```PresetDefintion``` object, the easy way is to extend the ```Abstra
 
 ```php
 
-use Ttree\OutOfBandRendering\Domain\Model\AbstractPresetDefinition;
+use Carbon\OutOfBandRendering\Domain\Model\AbstractPresetDefinition;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 class CustomPresetPresetDefinition extends AbstractPresetDefinition  {
@@ -61,7 +63,7 @@ class CustomPresetPresetDefinition extends AbstractPresetDefinition  {
      * @return string
      */
     public function getFusionPath(NodeInterface $node) {
-        return 'page<Ttree.ArchitectesCh:DefaultPage>/body<Neos.Fusion:Template>/content/main<Neos.Neos:PrimaryContent>/enterpriseProfile<Neos.Fusion:Matcher>/element<Ttree.ArchitectesCh:EnterpriseProfile>/reportSection<Ttree.ArchitectesCh:EnterpriseProfileSection>/content<Ttree.ArchitectesCh:ReportMenu>';
+        return 'page<Vendor.Site:DefaultPage>/body<Neos.Fusion:Template>/content/main<Neos.Neos:PrimaryContent>/enterpriseProfile<Neos.Fusion:Matcher>/element<Carbon.ArchitectesCh:EnterpriseProfile>/reportSection<Carbon.ArchitectesCh:EnterpriseProfileSection>/content<Carbon.ArchitectesCh:ReportMenu>';
     }
 }
 

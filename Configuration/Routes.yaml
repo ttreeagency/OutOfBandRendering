@@ -1,8 +1,8 @@
 -
-  name: 'Ttree.OutOfBandRendering - RenderingController->show'
-  uriPattern: 'ttree/outofbandrendering'
+  name: 'Carbon.OutOfBandRendering - RenderingController->show'
+  uriPattern: 'carbon/outofbandrendering'
   defaults:
-    '@package':    'Ttree.OutOfBandRendering'
+    '@package':    'Carbon.OutOfBandRendering'
     '@controller': 'Rendering'
     '@action':     'show'
     '@format':     'html'

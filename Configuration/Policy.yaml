@@ -1,12 +1,12 @@
 privilegeTargets:
   'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
 
-    'Ttree.OutOfBandRendering:Controller.RenderingController':
-      matcher: method(Ttree\OutOfBandRendering\Controller\RenderingController->showAction())
+    'Carbon.OutOfBandRendering:Controller.RenderingController':
+      matcher: method(Carbon\OutOfBandRendering\Controller\RenderingController->showAction())
 
 roles:
   'Neos.Flow:Everybody':
     privileges:
       -
-        privilegeTarget: 'Ttree.OutOfBandRendering:Controller.RenderingController'
+        privilegeTarget: 'Carbon.OutOfBandRendering:Controller.RenderingController'
         permission: GRANT

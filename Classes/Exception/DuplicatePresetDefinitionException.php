@@ -1,5 +1,5 @@
 <?php
-namespace Ttree\OutOfBandRendering\Exception;
+namespace Carbon\OutOfBandRendering\Exception;
 
 /**
  * A Duplicate Preset Definition Exception

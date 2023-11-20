@@ -1,5 +1,5 @@
 <?php
-namespace Ttree\OutOfBandRendering\Domain\Model;
+namespace Carbon\OutOfBandRendering\Domain\Model;
 
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 

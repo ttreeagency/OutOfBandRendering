@@ -1,6 +1,6 @@
 {
-    "name": "ttree/outofbandrendering",
-    "type": "neos-package",
+    "name": "carbon/outofbandrendering",
+    "type": "neos-carbon",
     "description": "A package to render Fusion Out of Band in complex application fun & easy",
     "license": "MIT",
     "keywords": [
@@ -9,11 +9,11 @@
         "fusion"
     ],
     "require": {
-        "neos/neos": "^7.0 || ^8.0"
+        "neos/neos": "^7.3 || ^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Ttree\\OutOfBandRendering\\": "Classes"
+            "Carbon\\OutOfBandRendering\\": "Classes"
         }
     },
     "extra": {

@@ -1,14 +1,14 @@
 <?php
-namespace Ttree\OutOfBandRendering\Factory;
+namespace Carbon\OutOfBandRendering\Factory;
 
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\Flow\Reflection\ReflectionService;
-use Ttree\OutOfBandRendering\Domain\Model\GenericPresetDefinition;
-use Ttree\OutOfBandRendering\Domain\Model\PresetDefinitionInterface;
-use Ttree\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
-use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
+use Carbon\OutOfBandRendering\Domain\Model\GenericPresetDefinition;
+use Carbon\OutOfBandRendering\Domain\Model\PresetDefinitionInterface;
+use Carbon\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
+use Carbon\OutOfBandRendering\Exception\PresetNotFoundException;
 
 /**
  * Preset Definition Factory

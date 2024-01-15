@@ -1,6 +1,11 @@
 Ttree:
   OutOfBandRendering:
-    presets: [ ]
-#    presets:
-#      'sample':
-#        typoScriptPath: 'page<Neos.NodeTypes:Page>/body<Neos.Fusion:Template>/content/main<Neos.Neos:PrimaryContent>/collection<Neos.Fusion:Matcher>/element<Your.Package:Collection>'
+    presets: []
+    # 'test':
+    #   path: 'root<Neos.Fusion:Case>/fallback<Neos.Fusion:Matcher>/element<Ttree.Strapping:Document.DefaultLayout>/body<Neos.Fusion:Case>/documentFinder<Neos.Fusion:Matcher>/element<Ttree.Extranet:Document.Staff>/renderer<Ttree.Website:Components.Template.Content>/content'
+
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        Ttree.OutOfBandRendering: true

@@ -2,6 +2,7 @@
 namespace Ttree\OutOfBandRendering\Controller;
 
 use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Exception;
 use Neos\Flow\Mvc\Controller\ActionController;
@@ -26,16 +27,19 @@ class RenderingController extends ActionController
     protected $defaultViewObjectName = FusionView::class;
 
     /**
-     * @var PropertyMapper
      * @Flow\Inject
      */
-    protected $propertyMapper;
+    protected PropertyMapper $propertyMapper;
 
     /**
      * @Flow\Inject
-     * @var PresetDefinitionFactory
      */
-    protected $presetDefinitionFactory;
+    protected ContextFactoryInterface $contentContext;
+
+    /**
+     * @Flow\Inject
+     */
+    protected PresetDefinitionFactory $presetDefinitionFactory;
 
     /**
      * @param string $node
@@ -44,8 +48,8 @@ class RenderingController extends ActionController
      */
     public function showAction(string $node, string $preset)
     {
-        /** @var NodeInterface $node */
-        $node = $this->propertyMapper->convert($node, NodeInterface::class);
+        $context = $this->contentContext->create();
+        $node = $context->getNodeByIdentifier($node);
         if ($node === null) {
             throw new NodeNotFoundException('The requested node does not exist or isn\'t accessible to the current user', 1442327533);
         }

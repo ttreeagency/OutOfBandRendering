@@ -2,6 +2,7 @@
 namespace Ttree\OutOfBandRendering\Controller;
 
 use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Projection\Content\TraversableNodes;
 use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Exception;
@@ -51,9 +52,12 @@ class RenderingController extends ActionController
         $context = $this->contentContext->create();
         $node = $context->getNodeByIdentifier($node);
         if ($node === null) {
-            throw new NodeNotFoundException('The requested node does not exist or isn\'t accessible to the current user', 1442327533);
+            $node = $this->propertyMapper->convert($node, NodeInterface::class);
+            if (!$node instanceof TraversableNodes) throw new NodeNotFoundException('The requested node does not exist or isn\'t accessible to the current user', 1442327533);
         }
+
         $this->view->assign('value', $node);
+
         $presetDefinition = $this->presetDefinitionFactory->create($preset, $node);
         $this->view->setFusionPath($presetDefinition->getFusionPath($node));
     }

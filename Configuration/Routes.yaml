@@ -1,5 +1,17 @@
 -
   name: 'Ttree.OutOfBandRendering - RenderingController->show'
+  uriPattern: 'api/1.0/fusion/render'
+  defaults:
+    '@package':    'Ttree.OutOfBandRendering'
+    '@controller': 'Rendering'
+    '@action':     'show'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+  httpMethods: ['GET']
+
+# @deprectated, will be remove in the next major
+-
+  name: 'Ttree.OutOfBandRendering - RenderingController->show'
   uriPattern: 'ttree/outofbandrendering'
   defaults:
     '@package':    'Ttree.OutOfBandRendering'

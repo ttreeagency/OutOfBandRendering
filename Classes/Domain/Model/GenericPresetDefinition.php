@@ -1,27 +1,19 @@
 <?php
+declare(strict_types=1);
+
 namespace Ttree\OutOfBandRendering\Domain\Model;
 
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 /**
- * Abstract Preset Definition
+ * Generic Preset Definition
  */
 class GenericPresetDefinition extends AbstractPresetDefinition
 {
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $name;
 
-    /**
-     * @var string
-     */
-    protected $path;
+    protected string $path;
 
-    /**
-     * @param string $name
-     * @param array $configuration
-     */
     public function __construct(string $name, array $configuration)
     {
         $this->name = (string)$name;
@@ -29,7 +21,7 @@ class GenericPresetDefinition extends AbstractPresetDefinition
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getName(): string
     {
@@ -38,8 +30,6 @@ class GenericPresetDefinition extends AbstractPresetDefinition
 
     /**
      * {@inheritdoc}
-     *
-     * @return int
      */
     public function getPriority(): int
     {
@@ -48,9 +38,6 @@ class GenericPresetDefinition extends AbstractPresetDefinition
 
     /**
      * {@inheritdoc}
-     *
-     * @param NodeInterface $node
-     * @return bool
      */
     public function canHandle(NodeInterface $node): bool
     {
@@ -58,8 +45,7 @@ class GenericPresetDefinition extends AbstractPresetDefinition
     }
 
     /**
-     * @param NodeInterface $node
-     * @return string
+     * {@inheritdoc}
      */
     public function getFusionPath(NodeInterface $node): string
     {

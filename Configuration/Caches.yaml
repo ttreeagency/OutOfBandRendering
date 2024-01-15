@@ -1,0 +1,4 @@
+Ttree_OutOfBandRendering_RegistredCache:
+  backendOptions:
+    defaultLifetime: 0
+  persistent: true

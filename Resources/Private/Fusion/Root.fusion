@@ -1,0 +1,8 @@
+prototype(Ttree.OutOfBandRendering:RegisterPath) {
+    @class = 'Ttree\\OutOfBandRendering\\Fusion\\RegisterPathImplementation'
+
+    node = ${node}
+    value = ${value}
+
+    segment = 'to-be-defined-and-unique'
+}

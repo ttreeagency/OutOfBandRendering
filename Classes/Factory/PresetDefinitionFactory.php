@@ -5,6 +5,7 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\Flow\Reflection\ReflectionService;
+use Ttree\OutOfBandRendering\Domain\Model\DynamicPresetDefinition;
 use Ttree\OutOfBandRendering\Domain\Model\GenericPresetDefinition;
 use Ttree\OutOfBandRendering\Domain\Model\PresetDefinitionInterface;
 use Ttree\OutOfBandRendering\Exception\DuplicatePresetDefinitionException;
@@ -18,7 +19,6 @@ use Ttree\OutOfBandRendering\Exception\PresetNotFoundException;
  */
 class PresetDefinitionFactory
 {
-
     const PRESET_DEFINITION_INTERFACE = PresetDefinitionInterface::class;
 
     /**
@@ -52,6 +52,10 @@ class PresetDefinitionFactory
      */
     public function create(string $presetName, NodeInterface $node): PresetDefinitionInterface
     {
+        if (str_starts_with($presetName, '@')) {
+            return new DynamicPresetDefinition($presetName);
+        }
+
         $this->initialize();
         if (!isset($this->presetDefinitions[$presetName]) && !isset($this->staticPresets[$presetName])) {
             throw new PresetNotFoundException(sprintf('Preset "%s" not found', $presetName), 1442471214);
@@ -87,12 +91,10 @@ class PresetDefinitionFactory
      */
     protected function initialize(): void
     {
-        if ($this->initialized === true) {
-            return;
-        }
+        if ($this->initialized === true) return;
         $classNames = static::getPresetDefinitionImplementationClassNames($this->objectManager);
         foreach ($classNames as $className) {
-            if ($className === GenericPresetDefinition::class) {
+            if ($className === GenericPresetDefinition::class || $className === DynamicPresetDefinition::class) {
                 continue;
             }
             /** @var PresetDefinitionInterface $presetDefinition */

@@ -9,11 +9,9 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
 abstract class AbstractPresetDefinition implements PresetDefinitionInterface
 {
     /**
-     * {@inheritdoc}
-     *
-     * @var integer
+     * Execution priority for the current preset definition
      */
-    protected $priority = 1;
+    protected int $priority = 1;
 
     /**
      * {@inheritdoc}

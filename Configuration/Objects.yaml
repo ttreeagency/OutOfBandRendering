@@ -1,0 +1,19 @@
+Ttree\OutOfBandRendering\Fusion\RegisterPathImplementation:
+  properties:
+    cache:
+      object:
+        factoryObjectName: Neos\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: Ttree_OutOfBandRendering_RegistredCache
+
+Ttree\OutOfBandRendering\Domain\Model\DynamicPresetDefinition:
+  properties:
+    cache:
+      object:
+        factoryObjectName: Neos\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: Ttree_OutOfBandRendering_RegistredCache

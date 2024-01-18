@@ -6,6 +6,7 @@ namespace Ttree\OutOfBandRendering\Fusion;
 use Neos\Cache\Frontend\StringFrontend;
 use Neos\Flow\Annotations as Flow;
 use Neos\Fusion\FusionObjects\AbstractFusionObject;
+use Ttree\OutOfBandRendering\Domain\Model\DynamicPresetName;
 
 class RegisterPathImplementation extends AbstractFusionObject {
 
@@ -20,19 +21,18 @@ class RegisterPathImplementation extends AbstractFusionObject {
         return (string)$this->fusionValue('value');
     }
 
-    public function getSegment(): string
+    public function getSegment(): DynamicPresetName
     {
-        return hash('sha256', (string)$this->fusionValue('segment'));
+        return DynamicPresetName::fromSegment($this->fusionValue('segment'));
     }
 
     public function evaluate() {
         $segments = explode('__meta', $this->path);
         $path = rtrim(array_shift($segments), '/');
         $this->cache->set(
-            $this->getSegment(),
+            $this->getSegment()->getName(),
             $path
         );
         return $this->getValue();
     }
-
 }

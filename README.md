@@ -25,7 +25,7 @@ Check the [Routes.yaml](Configuration/Routes.yaml) in this package, if you need 
 
 The endpoint require two parameters:
 
-- **node**: the full node path of the rendering node
+- **node**: the node address of the rendering node (e.g. `{"contentRepositoryId":"default","workspaceName":"live","dimensionSpacePoint":{"language":"en"},"aggregateId":"dfdddebe-d4a9-40b5-b7e1-e071a8024174"}`)
 - **preset**: the preset name, check below for information about Presets
 
 You can create preset in two different ways, static presets in ```Settings.yaml``` and dynamic presets with your

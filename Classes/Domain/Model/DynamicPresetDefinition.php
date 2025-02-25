@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Ttree\OutOfBandRendering\Domain\Model;
 
-use Neos\Flow\Annotations as Flow;
 use Neos\Cache\Frontend\StringFrontend;
-use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
+use Neos\Flow\Annotations as Flow;
 use Ttree\OutOfBandRendering\Exception\DynamicPresetPathException;
 
 /**
@@ -42,7 +42,7 @@ class DynamicPresetDefinition extends AbstractPresetDefinition
     /**
      * {@inheritdoc}
      */
-    public function canHandle(NodeInterface $node): bool
+    public function canHandle(Node $node): bool
     {
         return true;
     }
@@ -50,7 +50,7 @@ class DynamicPresetDefinition extends AbstractPresetDefinition
     /**
      * {@inheritdoc}
      */
-    public function getFusionPath(NodeInterface $node): string
+    public function getFusionPath(Node $node): string
     {
         $cacheKey = $this->name->getHash();
         if (!$this->cache->has($cacheKey)) throw new DynamicPresetPathException(sprintf('Fusion path not found, key=%s', $cacheKey));

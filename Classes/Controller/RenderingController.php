@@ -3,6 +3,7 @@ namespace Ttree\OutOfBandRendering\Controller;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\ContentRepository\Core\SharedModel\Node\NodeAddress;
+use Neos\ContentRepositoryRegistry\ContentRepositoryRegistry;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Exception;
 use Neos\Flow\Mvc\Controller\ActionController;
@@ -37,7 +38,7 @@ class RenderingController extends ActionController
     protected PresetDefinitionFactory $presetDefinitionFactory;
 
     #[\Neos\Flow\Annotations\Inject]
-    protected \Neos\ContentRepositoryRegistry\ContentRepositoryRegistry $contentRepositoryRegistry;
+    protected ContentRepositoryRegistry $contentRepositoryRegistry;
 
     /**
      * @param string $node JSON encoded NodeAddress

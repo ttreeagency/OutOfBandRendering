@@ -37,7 +37,7 @@ class RenderingController extends ActionController
      */
     protected PresetDefinitionFactory $presetDefinitionFactory;
 
-    #[\Neos\Flow\Annotations\Inject]
+    #[Flow\Inject]
     protected ContentRepositoryRegistry $contentRepositoryRegistry;
 
     /**

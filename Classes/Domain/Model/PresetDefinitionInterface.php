@@ -1,7 +1,7 @@
 <?php
 namespace Ttree\OutOfBandRendering\Domain\Model;
 
-use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 
 /**
  * Preset Definition Interface
@@ -25,15 +25,15 @@ interface PresetDefinitionInterface
      * Here, the PresetDefinition can do some additional runtime checks to see whether
      * it can handle the given node.
      *
-     * @param NodeInterface $node
+     * @param Node $node
      * @return bool TRUE
      * @api
      */
-    public function canHandle(NodeInterface $node): bool;
+    public function canHandle(Node $node): bool;
 
     /**
-     * @param NodeInterface $node
+     * @param Node $node
      * @return string
      */
-    public function getFusionPath(NodeInterface $node): string;
+    public function getFusionPath(Node $node): string;
 }

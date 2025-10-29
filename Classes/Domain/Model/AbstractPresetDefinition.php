@@ -1,7 +1,7 @@
 <?php
 namespace Ttree\OutOfBandRendering\Domain\Model;
 
-use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 
 /**
  * Abstract Preset Definition
@@ -37,10 +37,10 @@ abstract class AbstractPresetDefinition implements PresetDefinitionInterface
     /**
      * {@inheritdoc}
      *
-     * @param NodeInterface $node
+     * @param Node $node
      * @return bool
      */
-    public function canHandle(NodeInterface $node): bool
+    public function canHandle(Node $node): bool
     {
         return true;
     }

@@ -1,7 +1,7 @@
 <?php
 namespace Ttree\OutOfBandRendering\Factory;
 
-use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\Flow\Reflection\ReflectionService;
@@ -45,12 +45,12 @@ class PresetDefinitionFactory
 
     /**
      * @param $presetName
-     * @param NodeInterface $node
+     * @param Node $node
      * @return PresetDefinitionInterface
      * @throws PresetNotFoundException
      * @throws DuplicatePresetDefinitionException
      */
-    public function create(string $presetName, NodeInterface $node): PresetDefinitionInterface
+    public function create(string $presetName, Node $node): PresetDefinitionInterface
     {
         if (str_starts_with($presetName, '@')) {
             return new DynamicPresetDefinition($presetName);
@@ -69,7 +69,7 @@ class PresetDefinitionFactory
                 return $presetDefinition;
             }
         }
-        throw new PresetNotFoundException(sprintf('Unable to found a preset named "%s" to handle a node with identifier "%s"', $presetName, $node->getIdentifier()), 1442471333);
+        throw new PresetNotFoundException(sprintf('Unable to found a preset named "%s" to handle a node with identifier "%s"', $presetName, $node->aggregateId->value), 1442471333);
     }
 
     /**

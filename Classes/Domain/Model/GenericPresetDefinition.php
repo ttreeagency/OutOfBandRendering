@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Ttree\OutOfBandRendering\Domain\Model;
 
-use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 
 /**
  * Generic Preset Definition
@@ -39,7 +39,7 @@ class GenericPresetDefinition extends AbstractPresetDefinition
     /**
      * {@inheritdoc}
      */
-    public function canHandle(NodeInterface $node): bool
+    public function canHandle(Node $node): bool
     {
         return true;
     }
@@ -47,7 +47,7 @@ class GenericPresetDefinition extends AbstractPresetDefinition
     /**
      * {@inheritdoc}
      */
-    public function getFusionPath(NodeInterface $node): string
+    public function getFusionPath(Node $node): string
     {
         return $this->path;
     }
